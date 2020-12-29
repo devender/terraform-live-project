@@ -1,0 +1,17 @@
+# OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+*.vscode
+
+# Terraform
+.terraform
+*terraform.tfstate
+*backup
+
+.idea/
