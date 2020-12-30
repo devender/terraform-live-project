@@ -9,7 +9,15 @@ resource "aws_ecr_repository" "myecr" {
 }
 
 #Create VPC, SG etc
-#module "networking" {
-#  source = "./modules/networking"
-#  namespace = var.namespace
-#}
+module "networking" {
+  source = "./modules/networking"
+  namespace = var.namespace
+}
+
+module "autoscaling" {
+  source = "./modules/autoscaling"
+  namespace = var.namespace
+  ssh_keypair = var.ssh_keypair
+  vpc = module.networking.vpc
+  sg = module.networking.sg
+}
