@@ -98,7 +98,9 @@ resource "aws_ecs_service" "sample_app_service" {
       var.sg.websvr
     ]
     subnets = [
-      var.vpc.private_subnets
+      var.vpc.private_subnets[0],
+      var.vpc.private_subnets[1],
+      var.vpc.private_subnets[2],
     ]
   }
   load_balancer {
